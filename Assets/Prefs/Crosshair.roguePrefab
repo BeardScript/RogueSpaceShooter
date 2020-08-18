@@ -1,0 +1,69 @@
+{
+    "metadata": {
+        "version": 4.5,
+        "type": "Object",
+        "generator": "Object3D.toJSON"
+    },
+    "geometries": [{
+        "uuid": "AAE4D5F3-7900-46E9-93F4-282B8EAF8F74",
+        "type": "SphereGeometry",
+        "radius": 2,
+        "widthSegments": 8,
+        "heightSegments": 6,
+        "phiStart": 0,
+        "phiLength": 6.283185307179586,
+        "thetaStart": 0,
+        "thetaLength": 3.141592653589793
+    }],
+    "materials": [{
+        "uuid": "9F8DA326-BB25-4307-B2BA-ACB8B123E246",
+        "type": "MeshStandardMaterial",
+        "color": 16777215,
+        "roughness": 0,
+        "metalness": 0,
+        "emissive": 16777215,
+        "flatShading": true,
+        "depthFunc": 3,
+        "depthTest": true,
+        "depthWrite": true,
+        "stencilWrite": false,
+        "stencilWriteMask": 255,
+        "stencilFunc": 519,
+        "stencilRef": 0,
+        "stencilFuncMask": 255,
+        "stencilFail": 7680,
+        "stencilZFail": 7680,
+        "stencilZPass": 7680
+    }],
+    "object": {
+        "uuid": "4C167B3E-5D8E-4471-BEEF-1399AB738AF7",
+        "type": "Mesh",
+        "name": "Crosshair",
+        "userData": {
+            "__ASSET__": "4C167B3E-5D8E-4471-BEEF-1399AB738AF7",
+            "__IS_ADDING__": false,
+            "components": [{
+                "name": "TouchStick",
+                "componentPrototypeName": "TouchStick",
+                "interface": {
+                    "maxLength": "Number",
+                    "moveThisObject": "Boolean",
+                    "objectHSpeed": "Number",
+                    "objectVSpeed": "Number",
+                    "vIsZ": "Boolean"
+                },
+                "interfaceRefs": {
+                    "maxLength": 50,
+                    "moveThisObject": true,
+                    "objectHSpeed": -150,
+                    "objectVSpeed": 150,
+                    "vIsZ": true
+                }
+            }]
+        },
+        "layers": 1,
+        "matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+        "geometry": "AAE4D5F3-7900-46E9-93F4-282B8EAF8F74",
+        "material": "9F8DA326-BB25-4307-B2BA-ACB8B123E246"
+    }
+}

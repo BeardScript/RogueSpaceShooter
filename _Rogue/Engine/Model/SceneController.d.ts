@@ -1,0 +1,55 @@
+import { WebGLRenderer, Scene, Camera, Clock, Object3D } from 'three';
+import Lifecycle from './Lifecycle';
+import Component from '../Model/Component';
+export default abstract class SceneController extends Lifecycle {
+    private _clock;
+    private _onPlayCallbacks;
+    private _onStopCallbacks;
+    private _throttledAdjustCameraAndRenderer;
+    protected _scene: Scene;
+    protected _containerId: string;
+    protected _rogueDOMContainer: HTMLElement;
+    protected _camera: Camera;
+    protected _renderer: WebGLRenderer;
+    protected _isRunning: boolean;
+    protected _isPaused: boolean;
+    protected _width: number;
+    protected _height: number;
+    protected _isOffscreen: boolean;
+    protected _request: number;
+    protected _stop: () => void;
+    private _deltaTime;
+    readonly deltaTime: number;
+    readonly height: number;
+    readonly width: number;
+    readonly containerId: string;
+    camera: Camera;
+    readonly renderer: WebGLRenderer;
+    readonly isRunning: boolean;
+    readonly isPaused: boolean;
+    readonly rogueDOMContainer: HTMLElement;
+    readonly clock: Clock;
+    onPlay(callback: () => any): {
+        stop: () => void;
+    };
+    onStop(callback: () => any): {
+        stop: () => void;
+    };
+    private loadMaterials;
+    private updateEvensHandler;
+    pause(): void;
+    resume(): void;
+    togglePause(): void;
+    protected traverseObject3d(object: Object3D, callback: (object3d: Object3D) => void): void;
+    protected abstract traverseSceneComponents(callback: (component: Component) => void): void;
+    protected awake(): void;
+    protected start(): void;
+    protected beforeUpdate(): void;
+    protected update(): void;
+    protected afterUpdate(): void;
+    protected startRenderer(renderer?: WebGLRenderer): void;
+    setSceneDimensions(width: number, height: number): void;
+    private setCameraDimensions;
+    private adjustCameraAndRenderer;
+    protected beginUpdateCycle(): void;
+}
