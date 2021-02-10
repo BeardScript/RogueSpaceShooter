@@ -1,5 +1,5 @@
 {
-  "name": "roguetestproject",
+  "name": "roguetemplateproject",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "glob": "^7.1.6",
     "three": "0.119.1"
   },
   "devDependencies": {
@@ -20,10 +21,11 @@
     "@babel/preset-env": "^7.11.0",
     "babel-loader": "^8.1.0",
     "cross-env": "^5.2.1",
+    "fork-ts-checker-webpack-plugin": "^6.1.0",
     "ts-loader": "^5.3.3",
     "tslib": "^1.9.3",
     "typescript": "^3.9.7",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0"
   }
 }

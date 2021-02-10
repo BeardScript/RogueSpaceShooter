@@ -1,15 +1,30 @@
-var path = require("path");
-var glob = require("glob");
-var webpack = require("webpack");
+const path = require("path");
+const glob = require("glob");
+const webpack = require("webpack");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
 
+function getDevFiles() {
+  const files = glob.sync(path.resolve("./Assets") + "/**/*.@(ts|js)", {ignore: ["**/*/_Editor/**/*"]});
+  return files;
+}
+
+function getEditorFiles() {
+  const files = glob.sync( resolve("./Assets") + "/**/*.@(ts|js)" );
+  return files;
+}
+
 module.exports = {
   mode: "development",
   entry: {
-    "rogue-engine-user-scripts": glob.sync( resolve("./Assets") + "/**/*.@(ts|js)" ),
+    "rogue-engine-user-scripts": getDevFiles(),
+    "rogue-editor-user-scripts": {
+      import: getEditorFiles(),
+      dependOn: "rogue-engine-user-scripts",
+    },
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
@@ -55,7 +70,7 @@ module.exports = {
         exclude: [ /node_modules/, /_Rogue\/test/, /Assets\/test/ ],
         loader: "ts-loader",
         options: {
-          appendTsSuffixTo: [/\.vue$/]
+          transpileOnly: true,
         }
       },
       {
@@ -63,16 +78,6 @@ module.exports = {
         loader: "babel-loader",
         include: [resolve("Assets")],
         exclude: [ /node_modules/, /src\/test/ ],
-        query: {
-          presets: [
-            "@babel/preset-env",
-            {
-              plugins: [
-                "@babel/plugin-proposal-class-properties"
-              ]
-            }
-          ],
-        },
       },
     ]
   },
@@ -86,11 +91,12 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: "#eval-source-map",
+  devtool: "source-map",
+  plugins: [new ForkTsCheckerWebpackPlugin()]
 }
 
 if (process.env.NODE_ENV === "production") {
-  module.exports.devtool = "#source-map";
+  module.exports.devtool = "source-map";
 
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -103,6 +109,6 @@ if (process.env.NODE_ENV === "production") {
     
     new webpack.LoaderOptionsPlugin({
       minimize: false
-    })
+    }),
   ]);
 }

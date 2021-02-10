@@ -1,4 +1,4 @@
-import { WebGLRenderer, Scene, Camera, Clock, Object3D } from 'three';
+import { WebGLRenderer, Scene, Camera, Clock } from 'three';
 import Lifecycle from './Lifecycle';
 import Component from '../Model/Component';
 export default abstract class SceneController extends Lifecycle {
@@ -40,7 +40,6 @@ export default abstract class SceneController extends Lifecycle {
     pause(): void;
     resume(): void;
     togglePause(): void;
-    protected traverseObject3d(object: Object3D, callback: (object3d: Object3D) => void): void;
     protected abstract traverseSceneComponents(callback: (component: Component) => void): void;
     protected awake(): void;
     protected start(): void;
