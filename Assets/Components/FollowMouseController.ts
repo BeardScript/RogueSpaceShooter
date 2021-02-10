@@ -1,20 +1,16 @@
 import * as RE from 'rogue-engine';
 import { Vector3, Vector2, Plane, Raycaster } from 'three';
 
+const {Prop} = RE;
+
 export default class FolowMouseController extends RE.Component {
-  speed: number = 0.5;
-  accDistance: number = 50;
-  mouseMoveDist: number = 13;
+  @Prop("Number") speed: number = 0.5;
+  @Prop("Number") accDistance: number = 50;
+  @Prop("Number") mouseMoveDist: number = 13;
 
   private raycaster: Raycaster;
   private plane: Plane;
   private pointOfIntersection: Vector3;
-
-  static interface: RE.ComponentInterface = {
-    speed: "Number",
-    accDistance: "Number",
-    mouseMoveDist: "Number",
-  };
 
   start() {
     this.plane = new Plane(new Vector3(0, 1, 0), 0);

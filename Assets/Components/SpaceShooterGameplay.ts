@@ -2,22 +2,18 @@ import * as RE from 'rogue-engine';
 import { Vector3 } from 'three';
 import Status from './Status';
 
+const {Prop} = RE;
+
 export default class SpaceShooterGameplay extends RE.Component {
-  playerPrefab: RE.Prefab;
-  enemyPrefab: RE.Prefab;
-  maxEnemyShips: number = 2;
-  enemySpawnDistance: number = 500;
+  @Prop("Prefab") playerPrefab: RE.Prefab;
+  @Prop("Prefab") enemyPrefab: RE.Prefab;
+  @Prop("Number") maxEnemyShips: number = 2;
+  @Prop("Number") enemySpawnDistance: number = 500;
+
   score: number = 0;
   gameStarted: boolean = false;
   playerStatus: Status;
   enemyShips: {[uuid:string]: Status} = {};
-
-  static interface: RE.ComponentInterface = {
-    playerPrefab: "Prefab",
-    enemyPrefab: "Prefab",
-    maxEnemyShips: "Number",
-    enemySpawnDistance: "Number",
-  };
 
   update() {
     if (this.gameStarted) {

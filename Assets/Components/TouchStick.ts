@@ -1,12 +1,15 @@
 import * as RE from 'rogue-engine';
 import { Vector2 } from 'three';
+
+const {Prop} = RE;
     
 export default class TouchStick extends RE.Component {
-  maxLength: number = 50;
-  moveThisObject: boolean = false;
-  vIsZ: boolean = false;
-  objectHSpeed: number = 15;
-  objectVSpeed: number = 15;
+  @Prop("Number") maxLength: number = 50;
+  @Prop("Boolean") moveThisObject: boolean = false;
+  @Prop("Number") objectHSpeed: number = 15;
+  @Prop("Number") objectVSpeed: number = 15;
+  @Prop("Boolean") vIsZ: boolean = false;
+
   hAxis: number = 0;
   vAxis: number = 0;
   body: HTMLElement;
@@ -17,14 +20,6 @@ export default class TouchStick extends RE.Component {
   private stickOutside: HTMLElement;
   private stick: HTMLElement;
   private delta: Vector2 = new Vector2();
-
-  static interface: RE.ComponentInterface = {
-    maxLength: "Number",
-    moveThisObject: "Boolean",
-    objectHSpeed: "Number",
-    objectVSpeed: "Number",
-    vIsZ: "Boolean",
-  };
 
   start() {
     this.uiContainer = document.getElementById("rogue-ui") as HTMLElement;

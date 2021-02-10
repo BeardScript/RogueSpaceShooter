@@ -9,32 +9,22 @@ import {
   Audio,
 } from 'three';
 
+const {Prop} = RE;
+
 export default class Explosion extends RE.Component {
-  movementSpeed = 0.15;
-  totalObjects = 500;
-  objectSize = 0.2;
-  maxTime: number = 0.3;
-  maxDistance: number = 2;
-  color = "#FF0FFF";
-  sound: Audio;
-  volume: number = 1;
+  @Prop("Number") movementSpeed = 0.15;
+  @Prop("Number") totalObjects = 500;
+  @Prop("Number") objectSize = 0.2;
+  @Prop("Number") maxTime: number = 0.3;
+  @Prop("Number") maxDistance: number = 2;
+  @Prop("String") color = "#FF0FFF";
+  @Prop("Audio") sound: Audio;
+  @Prop("Number") volume: number = 1;
 
   private particleSystem: Points;
   private status: boolean;
   private dirs: number[] = [];
   private time: number = 0;
-
-  static interface: RE.ComponentInterface = {
-    movementSpeed: "Number",
-    totalObjects: "Number",
-    objectSize: "Number",
-    sizeRandomness: "Number",
-    maxTime: "Number",
-    maxDistance: "Number",
-    color: "String",
-    sound: "Audio",
-    volume: "Number",
-  };
 
   start() {
     this.explodeAnimation();

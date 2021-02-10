@@ -3,12 +3,14 @@ import { Object3D } from 'three';
 import Shooter from './Shooter';
 import Status from './Status';
 
+const {Prop} = RE;
+
 export default class AIController extends RE.Component {
-  speed: number = 1.5;
-  minEngageDistance: number = 80;
-  minShootingDistance: number = 200;
-  maxEscapeDistance: number = 300;
-  explosion: RE.Prefab;
+  @Prop("Number") speed: number = 1.5;
+  @Prop("Number") minEngageDistance: number = 80;
+  @Prop("Number") minShootingDistance: number = 200;
+  @Prop("Number") maxEscapeDistance: number = 300;
+  @Prop("Prefab") explosion: RE.Prefab;
 
   private isEscaping: boolean = false;
   private escapeSpeed: number = 0;
@@ -18,14 +20,6 @@ export default class AIController extends RE.Component {
   private shooter: Shooter;
   private target: Object3D;
   private beacon: Object3D;
-
-  static interface: RE.ComponentInterface = {
-    speed: "Number",
-    minEngageDistance: "Number",
-    minShootingDistance: "Number",
-    maxEscapeDistance: "Number",
-    explosion: "Prefab",
-  };
 
   start() {
     this.beacon = new Object3D();

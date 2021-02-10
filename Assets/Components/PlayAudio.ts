@@ -1,14 +1,11 @@
 import * as RE from 'rogue-engine';
 import { Audio } from 'three';
 
-export default class PlayAudio extends RE.Component {
-  sound: Audio;
-  volume: number = 1;
+const {Prop} = RE;
 
-  static interface: RE.ComponentInterface = {
-    sound: "Audio",
-    volume: "Number",
-  };
+export default class PlayAudio extends RE.Component {
+  @Prop("Audio") sound: Audio;
+  @Prop("Number") volume: number = 1;
 
   start() {
     this.sound.setVolume(this.volume);

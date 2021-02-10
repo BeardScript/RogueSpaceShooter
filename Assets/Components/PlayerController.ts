@@ -3,27 +3,20 @@ import { Vector3, Object3D, Camera, PerspectiveCamera } from 'three';
 import Shooter from './Shooter';
 import Status from './Status';
 
+const {Prop} = RE;
+
 export default class PlayerController extends RE.Component {
-  speed: number = 0.5;
-  accDistance: number = 50;
-  cursorMoveDist: number = 13;
-  cursorSpeed: number = 100;
-  crosshair: RE.Prefab;
-  explosion: RE.Prefab;
+  @Prop("Number") speed: number = 0.5;
+  @Prop("Number") accDistance: number = 50;
+  @Prop("Number") cursorMoveDist: number = 13;
+  @Prop("Number") cursorSpeed: number = 100;
+  @Prop("Prefab") crosshair: RE.Prefab;
+  @Prop("Prefab") explosion: RE.Prefab;
 
   private targetObject: Object3D;
   private lastPosition: Vector3;
   private shooter: Shooter;
   private status: Status;
-
-  static interface: RE.ComponentInterface = {
-    speed: "Number",
-    accDistance: "Number",
-    cursorMoveDist: "Number",
-    cursorSpeed: "Number",
-    crosshair: "Prefab",
-    explosion: "Prefab",
-  };
 
   start() {
     this.status = RE.getComponentByName("Status", this.object3d) as Status;

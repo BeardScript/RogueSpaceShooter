@@ -2,18 +2,16 @@ import * as RE from 'rogue-engine';
 import Collider from './Collider';
 import Status from './Status';
 
+const {Prop} = RE;
+
 export default class Projectile extends RE.Component {
-  speed: number = 5;
-  travelTime: number = 1000;
+  @Prop("Number") speed: number = 5;
+  @Prop("Number") travelTime: number = 1000;
+
   damage: number = 20;
 
   private elapsedTime: number = 0;
   private collider: Collider;
-
-  static interface: RE.ComponentInterface = {
-    speed: "Number",
-    travelTime: "Number",
-  };
 
   start() {
     this.collider = RE.getComponentByName("Collider", this.object3d) as Collider;

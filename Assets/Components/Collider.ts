@@ -1,9 +1,12 @@
 import * as RE from 'rogue-engine';
 import { Box3, Object3D } from 'three';
-    
+
+const {Prop} = RE;
+
 export default class Collider extends RE.Component {
-  tag: string;
-  isStatic: boolean = true;
+  @Prop("String") tag: string;
+  @Prop("Boolean") isStatic: boolean = true;
+
   collidingWith: Collider[] = [];
   collisionsThisFrame: Collider[] = [];
   bounds: {
@@ -18,11 +21,6 @@ export default class Collider extends RE.Component {
   private onCollisionEnterCallbacks: ((collider: Collider) => void)[] = [];
   private onCollisionStayCallbacks: ((collider: Collider) => void)[] = [];
   private onCollisionExitCallbacks: ((collider: Collider) => void)[] = [];
-
-  static interface: RE.ComponentInterface = {
-    tag: "String",
-    isStatic: "Boolean",
-  };
 
   awake() {
     this.calculateCollisionPoints(this.object3d);

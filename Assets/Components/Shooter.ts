@@ -1,22 +1,17 @@
 import * as RE from 'rogue-engine';
 import { Object3D, Audio } from 'three';
 import Collider from './Collider';
+
+const {Prop} = RE;
   
 export default class Shooter extends RE.Component {
-  projectile: RE.Prefab;
-  refresh: number = 0;
-  sound: Audio;
-  volume: number = 1;
+  @Prop("Prefab") projectile: RE.Prefab;
+  @Prop("Number") refresh: number = 0;
+  @Prop("Audio") sound: Audio;
+  @Prop("Number") volume: number = 1;
 
   private timer: number = 0;
   private collider: Collider;
-
-  static interface: RE.ComponentInterface = {
-    projectile: "Prefab",
-    refresh: "Number",
-    sound: "Audio",
-    volume: "Number",
-  };
 
   start() {
     this.collider = RE.getComponentByName("Collider", this.object3d) as Collider;
