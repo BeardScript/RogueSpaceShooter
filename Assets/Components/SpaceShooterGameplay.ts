@@ -30,7 +30,7 @@ export default class SpaceShooterGameplay extends RE.Component {
     const player = this.playerPrefab.instantiate();
     if (!player) return;
 
-    this.playerStatus = RE.getComponent(Status, player);
+    this.playerStatus = RE.getComponent(Status, player) as Status;
     this.gameStarted = true;
   }
 
@@ -86,7 +86,7 @@ export default class SpaceShooterGameplay extends RE.Component {
       enemy.position.copy(spawnPoint);
 
       const shipStatus = RE.getComponent(Status, enemy);
-      this.enemyShips[enemy.uuid] = shipStatus;
+      this.enemyShips[enemy.uuid] = shipStatus as Status;
     }
   }
 }

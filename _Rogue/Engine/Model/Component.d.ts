@@ -12,19 +12,20 @@ export default class Component extends Lifecycle {
      * For best results, make sure you don't
      * repeat them within the same Object3D.
     */
-    name: string;
+    get name(): string;
+    set name(newName: string);
     /**
      * Reference to the Object3D asociated to this component.
      *
      * Caution!! It can only be set internally by the engine
      */
-    readonly object3d: Object3D;
+    get object3d(): Object3D;
     /**
      * The 'ready' status of the component. This property will
      * be true once all the assets referenced in the 'interface'
      * of this component are loaded.
      */
-    readonly isReady: boolean;
+    get isReady(): boolean;
     toJSON(): {
         name: string;
         componentPrototypeName: string;
@@ -47,18 +48,5 @@ export default class Component extends Lifecycle {
     onObjectRemoved(): void;
 }
 export declare type ComponentInterface = {
-    [propName: string]: 
-        'String' |
-        'Number' |
-        'Boolean' |
-        'Select' |
-        'Vector2' |
-        'Vector3' |
-        'Object3D' |
-        'Prefab' |
-        'Texture' |
-        'Material' |
-        'Component' |
-        'Audio' |
-        'PositionalAudio';
+    [propName: string]: 'String' | 'Number' | 'Boolean' | 'Select' | 'Vector2' | 'Vector3' | 'Object3D' | 'Prefab' | 'Texture' | 'Material' | 'Component' | 'Audio' | 'PositionalAudio';
 };

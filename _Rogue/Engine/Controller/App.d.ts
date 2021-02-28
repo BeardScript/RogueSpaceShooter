@@ -8,15 +8,19 @@ export declare class App {
     private static _scenes;
     private static _sceneController;
     private constructor();
-    static activeCamera: string;
-    static readonly settings: any;
-    static title: string;
-    static currentScene: Scene;
-    static readonly scenes: {
+    static get activeCamera(): string;
+    static set activeCamera(cameraId: string);
+    static get settings(): any;
+    static get title(): string;
+    static set title(title: string);
+    static get currentScene(): Scene;
+    static set currentScene(scene: Scene);
+    static get scenes(): {
         name: string;
         uuid: string;
     }[];
-    static sceneController: SceneController;
+    static get sceneController(): SceneController;
+    static set sceneController(value: SceneController);
     static toJSON(assetPaths: {
         [uuid: string]: string;
     }): {

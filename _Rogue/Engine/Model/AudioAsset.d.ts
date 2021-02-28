@@ -9,10 +9,10 @@ export declare class AudioAsset {
         uuid: string;
         buffer?: AudioBuffer;
     });
-    readonly uuid: string;
-    readonly path: string;
-    readonly name: string;
+    get uuid(): string;
+    get path(): string;
+    get name(): string;
     getAudio(): Audio<GainNode>;
     getPositionalAudio(): PositionalAudio;
-    static fromFile(filePath: string): Promise<AudioAsset>;
+    static fromFile(filePath: string, onProgress?: () => void, onError?: () => void): Promise<AudioAsset>;
 }

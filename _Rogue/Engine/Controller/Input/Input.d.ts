@@ -5,7 +5,7 @@ export declare abstract class Input {
     private static _mouse;
     private static _keyboard;
     private static _touch;
-    static readonly mouse: Mouse;
-    static readonly keyboard: Keyboard;
-    static readonly touch: TouchController;
+    static get mouse(): Mouse;
+    static get keyboard(): Keyboard;
+    static get touch(): TouchController;
 }

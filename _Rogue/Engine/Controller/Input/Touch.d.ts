@@ -11,10 +11,11 @@ export declare class TouchController {
     private _endTouches;
     private _touches;
     private _enabled;
-    readonly startTouches: TouchInteraction[];
-    readonly endTouches: TouchInteraction[];
-    readonly touches: TouchInteraction[];
-    enabled: boolean;
+    get startTouches(): TouchInteraction[];
+    get endTouches(): TouchInteraction[];
+    get touches(): TouchInteraction[];
+    get enabled(): boolean;
+    set enabled(value: boolean);
     init(): void;
     private onTouchStart;
     private onTouchEnd;

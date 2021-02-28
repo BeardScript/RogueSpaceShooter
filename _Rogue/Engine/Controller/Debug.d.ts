@@ -20,7 +20,7 @@ export declare class Debug {
 export declare class Log {
     message: string;
     protected _type: 'Log' | 'Error' | 'Warning';
-    readonly type: "Log" | "Error" | "Warning";
+    get type(): "Log" | "Error" | "Warning";
     constructor(message: string);
 }
 export declare class Error extends Log {

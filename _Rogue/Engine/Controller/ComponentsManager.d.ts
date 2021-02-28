@@ -21,6 +21,6 @@ export declare const addComponent: (component: Component) => void;
 export declare const removeComponent: (component: Component) => boolean;
 export declare const removeComponents: (object3d: Object3D, recursive?: boolean | undefined) => void;
 export declare function getComponentByName(name: string, object3d?: Object3D): Component | undefined;
-export declare const getComponent: <T extends Component>(ComponentClass: new (...args: any[]) => T, object3d: Object3D) => T;
+export declare const getComponent: <T extends Component>(ComponentClass: new (...args: any[]) => T, object3d: Object3D) => T | undefined;
 export declare const getComponents: <T extends Component>(ComponentClass: new (...args: any[]) => T) => T[];
 export declare const getObjectComponents: (object3d: Object3D) => Component[];
