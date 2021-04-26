@@ -9,3 +9,6 @@ This is an example project made with Rogue Engine. It can only be opened from th
 - Select `open project`.
 - Navigate to the project folder.
 - Select it and click open.
+- In the project view, go to `Assets/Scenes/`
+- Open `SpaceShooter.rogueScene`
+- Enjoy!

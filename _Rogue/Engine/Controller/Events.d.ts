@@ -12,10 +12,14 @@ export declare function objectRemoved(object: Object3D, target: Object3D): void;
 export declare function onComponentAdded(callback: (component: Component, target: Object3D) => void): {
     stop: () => void;
 };
+export declare function onComponentLoaded(callback: (component: Component, target: Object3D) => void): {
+    stop: () => void;
+};
 export declare function onComponentRemoved(callback: (component: Component, target: Object3D) => void): {
     stop: () => void;
 };
 export declare function componentAdded(component: Component, target: Object3D): void;
+export declare function componentLoaded(component: Component, target: Object3D): void;
 export declare function componentRemoved(component: Component, target: Object3D): void;
 export declare function onBeforeUpdate(callback: (sceneController: SceneController) => void): {
     stop: () => void;

@@ -5,6 +5,8 @@ const router = express.Router();
 const cors = require('cors');
 
 let config = {
+  title: "",
+  scenes: [],
   sceneJson: {},
   assetPaths: {},
 }

@@ -9,6 +9,7 @@ declare class AssetManagerClass {
     private _assets;
     private _assetConfigs;
     private _assetPaths;
+    private _loadingAssets;
     get assets(): {
         [uuid: string]: Object3D | Material | Texture | AudioAsset;
     };
@@ -61,13 +62,18 @@ declare class AssetManagerClass {
     }): void;
     getAssetPath(uuid: string): string | undefined;
     registerAsset(asset: Object3D | AudioAsset | Material | Texture): void;
-    loadAsset(uuid: string): Promise<any>;
+    loadAsset(uuid: string): Promise<Object3D | Material | Texture | AudioAsset | undefined>;
     private getExtension;
     getAsset(uuid: string): Object3D | Material | Texture | AudioAsset;
     private loadObject;
+    private loadObjectFunction;
+    private loadNestedPrefabs;
     private loadAudio;
+    private loadAudioFunction;
     private loadMaterial;
+    private loadMaterialFunction;
     private loadTexture;
+    private loadTextureFunction;
     private loadTextureFile;
     removeAsset(uuid: string): void;
     clear(): void;

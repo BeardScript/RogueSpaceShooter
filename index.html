@@ -35,6 +35,8 @@
     init();
 
     async function init() {
+      window['ROGUE_ISDEV'] = true;
+
       const RE = window["rogue-engine"];
       const THREE = window["three"];
 
@@ -43,19 +45,19 @@
       RE.Input.touch.init();
 
       const res = await fetch("/getScenePlayerConfig");
-      const {sceneJson, assetPaths} = await res.json();
+      const {appConfig, sceneJson, assetPaths} = await res.json();
 
-      console.log({sceneJson, assetPaths});
+      console.log({appConfig, sceneJson, assetPaths});
 
       RE.AssetManager.setAssetPaths(assetPaths || {});
       RE.AssetManager.loadAssetConfigs(sceneJson.assetConfigs);
 
+      RE.App.fromJSON(appConfig);
       RE.App.activeCamera = sceneJson.initialCameraId;
       RE.App.sceneController = RE.Runtime;
       RE.App.currentScene = new THREE.ObjectLoader().parse(sceneJson.scene);
 
       RE.initComponents( RE.App.currentScene, sceneJson.components );
-      // loadAudioListeners();
 
       await RE.AssetManager.preloadAssets();
 

@@ -8,12 +8,21 @@ function resolve (dir) {
 }
 
 function getDevFiles() {
-  const files = glob.sync(path.resolve("./Assets") + "/**/*.@(ts|js)", {ignore: ["**/*/_Editor/**/*"]});
+  const files = glob.sync(path.resolve("./Assets") + "/**/*.@(ts|js)", {
+    ignore: [
+      "**/*/_Editor/**/*",
+      "**/*.d.ts",
+    ]
+  });
   return files;
 }
 
 function getEditorFiles() {
-  const files = glob.sync( resolve("./Assets") + "/**/*.@(ts|js)" );
+  const files = glob.sync( resolve("./Assets") + "/**/*.@(ts|js)", {
+    ignore: [
+      "**/*.d.ts",
+    ]
+  });
   return files;
 }
 
@@ -61,13 +70,14 @@ module.exports = {
     alias: {
       "Assets": resolve("Assets"),
       "rogue-engine": resolve("_Rogue/rogue-engine"),
-    }
+    },
+    fallback: { "path": false, "fs": false }
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
-        exclude: [ /node_modules/, /_Rogue\/test/, /Assets\/test/ ],
+        exclude: [ /node_modules/, /_Rogue\/test/, /Assets\/test/, /\.d.ts?$/ ],
         loader: "ts-loader",
         options: {
           transpileOnly: true,
