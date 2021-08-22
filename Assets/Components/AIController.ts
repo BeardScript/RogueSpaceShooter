@@ -28,7 +28,7 @@ export default class AIController extends RE.Component {
   }
 
   update() {
-    if (this.status && this.status.state === "destoryed") {
+    if (this.status && this.status.state === "destroyed") {
       return this.destroy();
     }
 
@@ -66,7 +66,7 @@ export default class AIController extends RE.Component {
   followEscapeRoute() {
     if (!this.isEscaping) {
       this.beacon.rotation.copy(this.object3d.rotation);
-      
+
       const beaconSpeed = this.speed * 1.5;
       const goingRight = Math.random() < 0.5 && Math.random() < 0.5;
 
