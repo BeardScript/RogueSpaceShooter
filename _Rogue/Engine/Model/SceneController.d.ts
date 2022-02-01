@@ -2,6 +2,7 @@ import { WebGLRenderer, Scene, Object3D, Camera, Clock } from 'three';
 import Lifecycle from './Lifecycle';
 import Component from '../Model/Component';
 export default abstract class SceneController extends Lifecycle {
+    renderFunc: () => void;
     private _clock;
     private _onPlayCallbacks;
     private _onStopCallbacks;
@@ -19,12 +20,16 @@ export default abstract class SceneController extends Lifecycle {
     protected _request: number;
     protected _stop: () => void;
     private _deltaTime;
+    private _pageVisibilityHandler;
+    constructor();
+    get defaultRenderFunc(): () => void;
     get deltaTime(): number;
     get height(): number;
     get width(): number;
     get containerId(): string;
     get camera(): Camera;
     set camera(value: Camera);
+    get scene(): Scene;
     get renderer(): WebGLRenderer;
     get isRunning(): boolean;
     get isPaused(): boolean;

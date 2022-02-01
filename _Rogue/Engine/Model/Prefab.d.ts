@@ -5,5 +5,5 @@ export declare class Prefab {
     get uuid(): string;
     get path(): string;
     get name(): string;
-    instantiate(parent?: Object3D): Object3D;
+    instantiate(parent?: Object3D): Object3D<import("three").Event>;
 }

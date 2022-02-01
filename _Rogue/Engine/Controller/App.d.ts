@@ -31,6 +31,7 @@ export declare class App {
             name: string;
             uuid: string;
         }[];
+        lanIP: string;
         assetPaths: {
             [uuid: string]: string;
         };
@@ -44,7 +45,7 @@ export declare class App {
         assetPaths: {
             [uuid: string]: string;
         };
-        lanIP: string;
+        lanIP?: string;
     }): void;
     static play(config: {
         title: string;
@@ -56,10 +57,9 @@ export declare class App {
             [uuid: string]: string;
         };
     }): void;
-    private static cleanupScene;
     static loadScene(name: string | number): Promise<void>;
     private static loadSceneFunc;
-    static clone(object: Object3D, parent?: Object3D): Object3D;
+    static clone(object: Object3D, parent?: Object3D): Object3D<import("three").Event>;
     private static loadComponentsRecursive;
     private static loadAudioListeners;
 }

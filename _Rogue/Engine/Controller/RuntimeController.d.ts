@@ -2,6 +2,7 @@ import Component from '../Model/Component';
 import SceneController from '../Model/SceneController';
 import { WebGLRenderer, Scene } from 'three';
 export declare class RuntimeController extends SceneController {
+    uiContainer: HTMLDivElement;
     private onPlayCbsFlaggedForRemoval;
     private onStopCbsFlaggedForRemoval;
     play(scene: Scene, renderer?: WebGLRenderer, componentsToLoad?: any): void;

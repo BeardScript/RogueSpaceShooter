@@ -4,7 +4,9 @@ export default class Component extends Lifecycle {
     private _name;
     private _object3d;
     private _isReady;
+    uuid: string;
     interface: ComponentInterface;
+    enabled: boolean;
     constructor(name: string, object3d: Object3D);
     /**
      * The name by which to search a component.
@@ -35,8 +37,11 @@ export default class Component extends Lifecycle {
         };
     };
     fromJSON(json: any): void;
+    private serializePropRef;
     private serializeInterfaceRefs;
     private loadInterfaceRefs;
+    private readyNotifier;
+    loadPropRef(interfaceRefs: Object, key: string | number, object: Object, readyProps: Object, propGI: string, actualProp?: string): void;
     awake(): void;
     start(): void;
     beforeUpdate(): void;
@@ -48,5 +53,5 @@ export default class Component extends Lifecycle {
     onObjectRemoved(): void;
 }
 export declare type ComponentInterface = {
-    [propName: string]: 'String' | 'Number' | 'Boolean' | 'Select' | 'Vector2' | 'Vector3' | 'Object3D' | 'Prefab' | 'Texture' | 'Material' | 'Component' | 'Audio' | 'PositionalAudio';
+    [propName: string]: 'String' | 'Number' | 'Boolean' | 'Select' | 'Vector2' | 'Vector3' | 'Object3D' | 'Prefab' | 'Texture' | 'Material' | 'Component' | 'Audio' | 'Color' | 'PositionalAudio' | 'AnimationClip';
 };

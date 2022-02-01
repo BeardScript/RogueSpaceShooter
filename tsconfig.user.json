@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.rogue.json",
+  "compilerOptions": {
+    "isolatedModules": true,
+		"esModuleInterop": true,
+  }
+}
