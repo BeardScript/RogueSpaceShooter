@@ -5,7 +5,7 @@ const {Prop} = RE;
 export default class Status extends RE.Component {
   @Prop("Number") hp: number = 5;
 
-  state: "normal" | "destoryed" = "normal";
+  state: "normal" | "destroyed" = "normal";
   currentHP: number = 0;
 
   awake() {
@@ -14,7 +14,7 @@ export default class Status extends RE.Component {
 
   update() {
     if(this.currentHP <= 0) {
-      this.state = "destoryed";
+      this.state = "destroyed";
     }
   }
 }
