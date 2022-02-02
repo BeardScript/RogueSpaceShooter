@@ -1,6 +1,6 @@
 import * as RE from 'rogue-engine';
 import { Object3D, Audio } from 'three';
-import Collider from './Collider';
+import Collider from './Collider.re';
 
 const {Prop} = RE;
   

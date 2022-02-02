@@ -1,9 +1,8 @@
 import * as RE from 'rogue-engine';
-import Status from './Status';
-import SpaceShooterGameplay from './SpaceShooterGameplay';
+import SpaceShooterGameplay from './SpaceShooterGameplay.re';
 import { AudioContext } from 'three';
-import PlayAudio from './PlayAudio';
-import Shooter from './Shooter';
+import PlayAudio from './PlayAudio.re';
+import Shooter from './Shooter.re';
 
 export default class GameUI extends RE.Component {
   private uiContainer: HTMLElement;

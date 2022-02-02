@@ -1,7 +1,7 @@
 import * as RE from 'rogue-engine';
 import { Vector3, Object3D, Camera, PerspectiveCamera } from 'three';
-import Shooter from './Shooter';
-import Status from './Status';
+import Shooter from './Shooter.re';
+import Status from './Status.re';
 
 const {Prop} = RE;
 
@@ -33,7 +33,7 @@ export default class PlayerController extends RE.Component {
   }
 
   update() {
-    if (this.status && this.status.state === "destoryed") {
+    if (this.status && this.status.state === "destroyed") {
       this.handleDestroyed();
       return;
     }

@@ -1,6 +1,6 @@
 import * as RE from 'rogue-engine';
 import { Vector3 } from 'three';
-import Status from './Status';
+import Status from './Status.re';
 
 const {Prop} = RE;
 

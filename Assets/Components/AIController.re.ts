@@ -1,7 +1,7 @@
 import * as RE from 'rogue-engine';
 import { Object3D } from 'three';
-import Shooter from './Shooter';
-import Status from './Status';
+import Shooter from './Shooter.re';
+import Status from './Status.re';
 
 const {Prop} = RE;
 

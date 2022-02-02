@@ -1,6 +1,6 @@
 import * as RE from 'rogue-engine';
-import Collider from './Collider';
-import Status from './Status';
+import Collider from './Collider.re';
+import Status from './Status.re';
 
 const {Prop} = RE;
 
